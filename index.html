@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyBuddy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>StudyBuddy</h1>
+    <p>Your student productivity companion</p>
+  </header>
+
+  <main>
+    <section class="dashboard">
+      <h2>Assignment Tracker</h2>
+
+      <div class="input-section">
+        <input type="text" id="assignmentInput" placeholder="Enter assignment">
+        <button onclick="addAssignment()">Add</button>
+      </div>
+
+      <ul id="assignmentList"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
