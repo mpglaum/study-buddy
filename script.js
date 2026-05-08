@@ -1,5 +1,3 @@
-const assignmentList = document.getElementById("assignmentList");
-
 function addAssignment() {
 
   const assignmentInput =
@@ -11,46 +9,37 @@ function addAssignment() {
   const priorityInput =
     document.getElementById("priorityInput");
 
+  const assignmentList =
+    document.getElementById("assignmentList");
+
   if (assignmentInput.value === "") {
     alert("Please enter an assignment.");
     return;
   }
 
-  const assignmentCard =
+  const assignment =
     document.createElement("div");
 
-  assignmentCard.classList.add(
+  assignment.classList.add(
     "assignment",
     priorityInput.value
   );
 
-  assignmentCard.innerHTML = `
+  assignment.innerHTML = `
   
     <div>
-      <h3>${assignmentInput.value}</h3>
-
-      <p>
-        Due: ${dueDateInput.value || "No due date"}
-      </p>
-
-      <p>
-        Priority: ${priorityInput.value}
-      </p>
+      <strong>${assignmentInput.value}</strong>
+      <br>
+      Due: ${dueDateInput.value || "No due date"}
     </div>
 
     <div class="assignment-buttons">
 
-      <button
-        class="complete-btn"
-        onclick="toggleComplete(this)"
-      >
+      <button onclick="completeAssignment(this)">
         Complete
       </button>
 
-      <button
-        class="delete-btn"
-        onclick="deleteAssignment(this)"
-      >
+      <button onclick="deleteAssignment(this)">
         Delete
       </button>
 
@@ -58,7 +47,7 @@ function addAssignment() {
 
   `;
 
-  assignmentList.appendChild(assignmentCard);
+  assignmentList.appendChild(assignment);
 
   assignmentInput.value = "";
   dueDateInput.value = "";
@@ -68,14 +57,6 @@ function deleteAssignment(button) {
   button.parentElement.parentElement.remove();
 }
 
-function toggleComplete(button) {
+function completeAssignment(button) {
   button.parentElement.parentElement.classList.toggle("completed");
 }
-
-document
-  .getElementById("darkModeBtn")
-  .addEventListener("click", () => {
-
-    document.body.classList.toggle("dark-mode");
-
-});
