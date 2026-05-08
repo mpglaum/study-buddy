@@ -2,7 +2,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f7fb;
   margin: 0;
-  padding: 0;
+  transition: 0.3s;
+}
+
+.dark-mode {
+  background-color: #1f1f1f;
+  color: white;
 }
 
 header {
@@ -10,6 +15,14 @@ header {
   color: white;
   text-align: center;
   padding: 30px;
+}
+
+#darkModeBtn {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 main {
@@ -22,18 +35,24 @@ main {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  width: 400px;
+  width: 700px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dark-mode .dashboard {
+  background: #333;
 }
 
 .input-section {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
-input {
-  flex: 1;
+input,
+select,
+button {
   padding: 10px;
 }
 
@@ -41,21 +60,34 @@ button {
   background-color: #4a6cf7;
   color: white;
   border: none;
-  padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-button:hover {
-  background-color: #3555d3;
-}
-
-li {
-  background: #eef2ff;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+.assignment {
   list-style: none;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.high {
+  background-color: #ff4d4d;
+}
+
+.medium {
+  background-color: #ffb84d;
+}
+
+.low {
+  background-color: #4CAF50;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
 }
