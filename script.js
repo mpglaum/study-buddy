@@ -1,34 +1,66 @@
+// script.js
+
 const assignmentList = document.getElementById("assignmentList");
 
 function addAssignment() {
-  const assignmentInput = document.getElementById("assignmentInput");
-  const dueDateInput = document.getElementById("dueDateInput");
-  const priorityInput = document.getElementById("priorityInput");
+
+  const assignmentInput =
+    document.getElementById("assignmentInput");
+
+  const dueDateInput =
+    document.getElementById("dueDateInput");
+
+  const priorityInput =
+    document.getElementById("priorityInput");
 
   if (assignmentInput.value === "") {
     alert("Please enter an assignment.");
     return;
   }
 
-  const li = document.createElement("li");
+  const assignmentCard =
+    document.createElement("div");
 
-  li.classList.add("assignment");
-  li.classList.add(priorityInput.value);
+  assignmentCard.classList.add(
+    "assignment",
+    priorityInput.value
+  );
 
-  li.innerHTML = `
+  assignmentCard.innerHTML = `
+  
     <div>
-      <strong>${assignmentInput.value}</strong><br>
-      Due: ${dueDateInput.value || "No date selected"}<br>
-      Priority: ${priorityInput.value}
+      <h3>${assignmentInput.value}</h3>
+
+      <p>
+        Due: ${dueDateInput.value || "No due date"}
+      </p>
+
+      <p>
+        Priority: ${priorityInput.value}
+      </p>
     </div>
 
-    <div>
-      <button onclick="toggleComplete(this)">Complete</button>
-      <button onclick="deleteAssignment(this)">Delete</button>
+    <div class="assignment-buttons">
+
+      <button
+        class="complete-btn"
+        onclick="toggleComplete(this)"
+      >
+        Complete
+      </button>
+
+      <button
+        class="delete-btn"
+        onclick="deleteAssignment(this)"
+      >
+        Delete
+      </button>
+
     </div>
+
   `;
 
-  assignmentList.appendChild(li);
+  assignmentList.appendChild(assignmentCard);
 
   assignmentInput.value = "";
   dueDateInput.value = "";
@@ -42,6 +74,10 @@ function toggleComplete(button) {
   button.parentElement.parentElement.classList.toggle("completed");
 }
 
-document.getElementById("darkModeBtn").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+document
+  .getElementById("darkModeBtn")
+  .addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-mode");
+
 });

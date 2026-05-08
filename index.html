@@ -1,44 +1,108 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>StudyBuddy</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <header>
-    <h1>StudyBuddy</h1>
-    <p>Stay organized and stress-free</p>
+  <div class="container">
 
-    <button id="darkModeBtn">Toggle Dark Mode</button>
-  </header>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h1>StudyBuddy</h1>
 
-  <main>
-    <section class="dashboard">
+      <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Assignments</a>
+        <a href="#">Calendar</a>
+        <a href="#">Study Timer</a>
+      </nav>
+    </aside>
 
-      <h2>Assignment Tracker</h2>
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-      <div class="input-section">
-        <input type="text" id="assignmentInput" placeholder="Assignment name">
+      <!-- TOP SECTION -->
+      <section class="hero">
+        <div>
+          <h2>Welcome Back, Madi 👋</h2>
+          <p>Stay productive and keep track of your assignments.</p>
+        </div>
 
-        <input type="date" id="dueDateInput">
+        <button id="darkModeBtn">Dark Mode</button>
+      </section>
 
-        <select id="priorityInput">
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
+      <!-- STATS -->
+      <section class="stats">
 
-        <button onclick="addAssignment()">Add</button>
-      </div>
+        <div class="card">
+          <h3>12</h3>
+          <p>Total Assignments</p>
+        </div>
 
-      <ul id="assignmentList"></ul>
+        <div class="card">
+          <h3>4</h3>
+          <p>Due This Week</p>
+        </div>
 
-    </section>
-  </main>
+        <div class="card">
+          <h3>85%</h3>
+          <p>Productivity</p>
+        </div>
+
+      </section>
+
+      <!-- ADD ASSIGNMENT -->
+      <section class="assignment-section">
+
+        <div class="section-header">
+          <h2>Assignments</h2>
+        </div>
+
+        <div class="input-section">
+
+          <input
+            type="text"
+            id="assignmentInput"
+            placeholder="Enter assignment..."
+          >
+
+          <input
+            type="date"
+            id="dueDateInput"
+          >
+
+          <select id="priorityInput">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+
+          <button onclick="addAssignment()">
+            Add
+          </button>
+
+        </div>
+
+        <div id="assignmentList" class="assignment-list"></div>
+
+      </section>
+
+    </main>
+
+  </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
