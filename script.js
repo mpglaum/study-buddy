@@ -1,5 +1,3 @@
-// script.js
-
 const assignmentList = document.getElementById("assignmentList");
 
 function addAssignment() {
